@@ -45,7 +45,7 @@ process_user() {
     if [ "$login_success" == "false" ]; then
         echo -e "\n[+] Could Not Login For '$MatricNo', Moving On...\n"
 
-        return
+        continue
     fi
 
     echo -e "==> AccessToken:-\n ----------------- \n $AccessToken\n"
@@ -61,11 +61,16 @@ process_user() {
 
     echo "*** Saving Accomodation Reservation for $FullName, Please Wait ***"
 
-    # if ["$Hostel "]; then 
-    #     echo -e "\n[+] Invalid Hostel Name - '"$Hostel"' Selected for '"$MatricNo"', Moving On...\n"
+    allHostels=("JAJA" "ENI-NJOKU HALL" "PROFESSOR SABURI BIOBAKU HALL" "ALIYU MAKAMA BIDA HALL" "FAGUNWA HALL" "HONOURS HALL" "QUEEN AMINA HALL" "MOREMI HALL")
+
+    # TODO:Write Check to make sure that the Hostel that is passed is Valid
+
+    # if [ "$hostelExists" == false ]; then
+    #     echo -e "\n[+] Invalid Hostel Name - '$Hostel' Selected for '$MatricNo', Moving On...\n"
 
     #     continue
     # fi
+
 
     retry_count=0
     hall_info='{"HallId":"'$Hostel'"}'
