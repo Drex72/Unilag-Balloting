@@ -163,7 +163,7 @@ while read -r MatricNo Password Hostel; do
     process_count=$(jobs | wc -l)
 
     # If there are already 3 background processes, wait for one to finish
-    if [ "$process_count" -ge 8 ]; then
+    if [ "$process_count" -ge 2 ]; then
         wait
     fi
 done < "$csv_file"
